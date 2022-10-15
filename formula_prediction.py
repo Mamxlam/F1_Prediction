@@ -35,11 +35,15 @@ def main():
     constructors_df['word_count'] = constructors_df.apply(lambda row: manipulator.getWordCount(row['url']), axis=1)
     print(constructors_df)
 
+
+    ##############################################################################################################
     # What to keep
     # circuits -> circuitId | circuitRef | name | location | country
     # constructor_results -> raceId | constructorId | points
     # constructors -> constructorId | constructorRef | nationality | ??Wikipedia number of characters in page????
-    # 
+    # constructor_standings -> raceId | constructorId | points | position | wins
+    # drivers -> driverId | dob (age) | nationality | url (feature wordCount)
+    
 
 
 
