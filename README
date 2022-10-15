@@ -1,0 +1,104 @@
+Notes regarding Formula Project
+
+
+
+
+
+
+FILE DETAILS
+==========================================================
+
+==> circuits.csv <==
+circuitId,circuitRef,name,location,country,lat,lng,alt,url
+
+==========================================================
+
+==> constructor_results.csv <==
+constructorResultsId,raceId,constructorId,points,status
+
+==========================================================
+
+==> constructors.csv <==
+constructorId,constructorRef,name,nationality,url
+
+==========================================================
+
+==> constructor_standings.csv <==
+constructorStandingsId,raceId,constructorId,points,position,positionText,wins
+
+==========================================================
+
+==> drivers.csv <==
+driverId,driverRef,number,code,forename,surname,dob,nationality,url
+
+==========================================================
+
+==> driver_standings.csv <==
+driverStandingsId,raceId,driverId,points,position,positionText,wins
+
+==========================================================
+
+==> lap_times.csv <==
+raceId,driverId,lap,position,time,milliseconds
+
+==========================================================
+
+==> pit_stops.csv <==
+raceId,driverId,stop,lap,time,duration,milliseconds
+
+==========================================================
+
+==> qualifying.csv <==
+qualifyId,raceId,driverId,constructorId,number,position,q1,q2,q3
+
+==========================================================
+
+==> races.csv <==
+raceId,year,round,circuitId,name,date,time,url,fp1_date,fp1_time,fp2_date,fp2_time,fp3_date,fp3_time,quali_date,quali_time,sprint_date,sprint_time
+
+==========================================================
+
+==> results.csv <==
+resultId,raceId,driverId,constructorId,number,grid,position,positionText,positionOrder,points,laps,time,milliseconds,fastestLap,rank,fastestLapTime,fastestLapSpeed,statusId
+
+==========================================================
+
+==> seasons.csv <==
+year,url
+
+==========================================================
+
+==> sprint_results.csv <==
+resultId,raceId,driverId,constructorId,number,grid,position,positionText,positionOrder,points,laps,time,milliseconds,fastestLap,fastestLapTime,statusId
+
+==========================================================
+
+==> status.csv <==
+statusId,status
+
+
+
+
+
+
+####################################################   PROBLEMS TO SOLVE   #################################################
+
+Before grand Prix
+1) Race winner
+2) Position for each racer in the qualifiers
+3) Position for each racer in the grand prix
+4) Possible DNFs?
+5) Incremental update of the model mid season
+
+--> Available Information <--
+a) Previous races results
+b) Previous perfromance
+c) Team Perfromance
+d) Current Standings
+e) Old Teams -> With Semi-Supervised remove old team constructor ids and reclassify and assign ids from new teams.
+
+
+Before championship season
+6) Championship winner prediction at start of the year
+
+
