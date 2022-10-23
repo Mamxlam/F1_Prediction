@@ -43,7 +43,15 @@ def main():
     # constructors -> constructorId | constructorRef | nationality | ??Wikipedia number of characters in page????
     # constructor_standings -> raceId | constructorId | points | position | wins
     # drivers -> driverId | dob (age) | nationality | url (feature wordCount)
-    
+    # driver_standings -> raceId | driverId | points | position | wins
+    # lap_times -> raceId | driverId | lap | position | milliseconds
+    # pit_stops -> raceId | driverId | stop | lap | time | milliseconds
+    # qualifying -> raceId | driverId | constructorId | position | q1 | q2 | q3 (last 3 from string to time or milliseconds)
+    # races -> raceId | year | round | circuitId | date | time
+    # results -> raceId | driverId | constructorId | grid | position | positionOrder | points | laps | milliseconds | fastestLap | rank | fastestLapTime | fastestLapSpeed | statusId
+    # seasons -> 
+    # sprint_results -> raceId | driverId | constructorId | grid | position | positionOrder | points (acquired) | laps | milliseconds | fastestLap | fastestLapTime | statusId
+
 
 
 
