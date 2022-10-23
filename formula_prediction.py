@@ -28,12 +28,7 @@ def main():
     drivers_df = data_dict['drivers']
     pit_stops = data_dict['pit_stops']
 
-    # Create Manipulator object
-    manipulator = DataManipulation()
 
-    # Create WordCount feature from wikipedia pages.
-    constructors_df['word_count'] = constructors_df.apply(lambda row: manipulator.getWordCount(row['url']), axis=1)
-    print(constructors_df)
 
 
     ##############################################################################################################
@@ -52,6 +47,40 @@ def main():
     # seasons -> 
     # sprint_results -> raceId | driverId | constructorId | grid | position | positionOrder | points (acquired) | laps | milliseconds | fastestLap | fastestLapTime | statusId
 
+
+
+
+    circuits_df = circuits_df[['circuitId','location','country', 'alt', 'url']]
+    constructor_results_df = constructor_results_df[['raceId','constructorId','points']]
+    constructors_df = constructors_df[['constructorId','nationality','url']]
+    constructors_standings_df = constructors_standings_df[['raceId','constructorId','points','position','wins']]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ##############################################################################################################
+    #Feature Engineering 
+
+    # Create Manipulator object
+    manipulator = DataManipulation()
+
+    # Create WordCount feature from wikipedia pages.
+    constructors_df['word_count'] = constructors_df.apply(lambda row: manipulator.getWordCount(row['url']), axis=1)
+    print(constructors_df)
 
 
 
