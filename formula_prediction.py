@@ -49,12 +49,19 @@ def main():
 
 
 
-
+    # Dataframe Selections
     circuits_df = circuits_df[['circuitId','location','country', 'alt', 'url']]
     constructor_results_df = constructor_results_df[['raceId','constructorId','points']]
     constructors_df = constructors_df[['constructorId','nationality','url']]
     constructors_standings_df = constructors_standings_df[['raceId','constructorId','points','position','wins']]
-
+    drivers_df = drivers_df[['driverId','dob','nationality','url']]
+    driver_standings_df = driver_standings_df[['raceId','driverId','points','position','wins']]
+    lap_times_df = lap_times_df[['raceId','driverId','lap','position','milliseconds']]
+    pit_stops = pit_stops[['raceId','driverId','stop','lap','time','milliseconds']]
+    qualifying_df = qualifying_df[['raceId','driverId','constructorId','position','q1','q2','q3']]
+    races_df = races_df[['raceId','year','round','circuitId','date','time']]
+    results_df = results_df[['raceId','driverId','constructorId','grid','position','positionOrder','points','laps','milliseconds','fastestLap','rank','fastestLapTime','fastestLapSpeed','statusId']]
+    sprint_results_df = sprint_results_df[['raceId','driverId','constructorId','grid','position','positionOrder','points','laps','milliseconds','fastestLap','fastestLapTime','statusId']]
 
 
 
