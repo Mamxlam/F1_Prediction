@@ -51,26 +51,48 @@ def main():
 
     # Dataframe Selections
     circuits_df = circuits_df[['circuitId','location','country', 'alt', 'url']]
+    circuits_df.rename(columns={'url': 'url_circuit'}, inplace=True)
+
     constructor_results_df = constructor_results_df[['raceId','constructorId','points']]
+
     constructors_df = constructors_df[['constructorId','nationality','url']]
+    constructors_df.rename(columns={'url': 'url_constructors', 'nationality': 'constructor_nationality'}, inplace=True)
+
     constructors_standings_df = constructors_standings_df[['raceId','constructorId','points','position','wins']]
+
     drivers_df = drivers_df[['driverId','dob','nationality','url']]
+
     driver_standings_df = driver_standings_df[['raceId','driverId','points','position','wins']]
+
     lap_times_df = lap_times_df[['raceId','driverId','lap','position','milliseconds']]
+
     pit_stops = pit_stops[['raceId','driverId','stop','lap','time','milliseconds']]
+
     qualifying_df = qualifying_df[['raceId','driverId','constructorId','position','q1','q2','q3']]
+
     races_df = races_df[['raceId','year','round','circuitId','date','time']]
+
     results_df = results_df[['raceId','driverId','constructorId','grid','position','positionOrder','points','laps','milliseconds','fastestLap','rank','fastestLapTime','fastestLapSpeed','statusId']]
+
     sprint_results_df = sprint_results_df[['raceId','driverId','constructorId','grid','position','positionOrder','points','laps','milliseconds','fastestLap','fastestLapTime','statusId']]
 
 
 
 
 
+    ################################################# Merge the dataframes to include all data #################################################################
 
+    # Added to results dataframe the constructor points at the time of the race
+    merged_df = pd.merge(results_df, constructor_results_df, how='left', left_on=['raceId', 'constructorId'], right_on=['raceId', 'constructorId'], suffixes=(None,'_constructor'))
 
+    # Added race info per record
+    merged_df = merged_df.merge(races_df, how='left', left_on=['raceId'], right_on=['raceId'], suffixes=(None,'_of_race'))
 
+    # Merged circuit information
+    merged_df = merged_df.merge(circuits_df, how='left', left_on=['circuitId'], right_on=['circuitId'], suffixes=(None,'_of_circuit'))
 
+    # 
+    merged_df = merged_df.merge(constructors_df, how='left', left_on=['constructorId'], right_on=['constructorId'], suffixes=(None,'_of_constructor'))
 
 
 
